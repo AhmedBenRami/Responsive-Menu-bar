@@ -1,0 +1,240 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgb(255, 255, 255);
+    font-family: monospace, sans-serif;
+    font-size: 1.01em;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: rgb(34, 34, 34);
+    background-image: url("https://mymodernmet.com/wp/wp-content/uploads/2021/05/AS14-71-9847-view-of-earth-from-space-1-1024x1024.jpeg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.1);
+        opacity: 0.5;
+    }
+
+    /*hovering on a li to make glass effect*/
+    &:hover::before {
+        opacity: 0.8;
+    }
+}
+
+/* large screen */
+@media (min-width: 900px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    header {
+        width: 100%;
+        height: 70px;
+    }
+
+    nav {
+        width: 75%;
+        float: right;
+        margin-top: 10px;
+    }
+
+    nav ul {
+        width: 100%;
+        min-height: fit-content;
+        height: 70px;
+        position: sticky;
+        top: 0;
+    }
+
+    nav ul li {
+        width: 25%;
+        height: 100%;
+
+        &#home {
+            border-bottom: 3px solid;
+        }
+
+        &::before {
+            height: 100%;
+            width: 25%;
+        }
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+}
+
+/* medium screen */
+@media (min-width: 500px) and (max-width: 900px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    header {
+        width: 100%;
+        height: 70px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        width: 100%;
+        min-height: fit-content;
+        height: 70px;
+        position: fixed;
+    }
+
+    nav ul li {
+        width: 25%;
+        height: 100%;
+
+        &#home {
+            border-bottom: 3px solid;
+        }
+
+        &::before {
+            height: 100%;
+            width: 25%;
+        }
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+}
+
+/* mobile */
+@media (max-width: 500px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+
+    }
+
+    header,
+    nav {
+        width: 100%;
+        height: 100%;
+    }
+
+    nav *,
+    nav *::before,
+    nav *::after {
+        transition: all 0.3s;
+    }
+
+    nav ul {
+        width: 90%;
+        height: 100%;
+        flex-direction: column;
+        float: right;
+        position: fixed;
+        left: 10%;
+        transform: rotateY(90deg);
+        transform-origin: right center;
+    }
+
+    nav ul li {
+        width: 100%;
+        height: 25%;
+
+        &::before {
+            content: "";
+            height: 25%;
+            width: 100%;
+            box-shadow: inset 0 0 2000px rgb(255, 255, 255);
+        }
+
+        &:hover {
+            text-decoration: solid underline;
+            text-decoration-thickness: 3px;
+        }
+    }
+
+    .box {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .box::before,
+    .box::after {
+        content: "";
+        width: 30px;
+        height: 5px;
+        background-color: white;
+        position: absolute;
+        left: 10px;
+        z-index: -1;
+    }
+
+    .box::before {
+        top: 15px;
+    }
+
+    .box::after {
+        bottom: 15px;
+    }
+
+    input[type="checkbox"] {
+        display: block;
+        width: 100%;
+        height: 100%;
+        appearance: none;
+        border: 1px solid;
+        outline: none;
+    }
+
+    nav:has(input[type="checkbox"]:checked) ul {
+        transform: rotateY(0deg);
+    }
+
+    .box:has(input[type="checkbox"]:checked)::before {
+        top: 50%;
+        transform: translate(0, -50%) rotate(45deg);
+    }
+
+    .box:has(input[type="checkbox"]:checked)::after {
+        bottom: 50%;
+        transform: translate(0, 50%) rotate(-45deg);
+    }
+
+
+
+
+}
