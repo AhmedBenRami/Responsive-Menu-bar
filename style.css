@@ -17,7 +17,7 @@ body {
     background-color: rgb(34, 34, 34);
     background-image: url("https://mymodernmet.com/wp/wp-content/uploads/2021/05/AS14-71-9847-view-of-earth-from-space-1-1024x1024.jpeg");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
 }
 
 nav ul {
