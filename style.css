@@ -20,6 +20,11 @@ body {
     background-size: cover;
 }
 
+nav {
+    width: 100vw;
+    height: 100vh;
+}
+
 nav ul {
     display: flex;
     flex-direction: row;
